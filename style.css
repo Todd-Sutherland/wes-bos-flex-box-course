@@ -102,3 +102,16 @@ button[disabled] {
   min-height: 100vh;
   flex-direction: column;
 }
+
+.box {
+  /* width: 300px; */
+  width: 33.3333333%;
+}
+
+.flex-container-with-wrap {
+  display: flex;
+  border: 10px solid goldenrod;
+  height: 100vh;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
