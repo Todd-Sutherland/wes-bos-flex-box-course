@@ -105,13 +105,81 @@ button[disabled] {
 
 .box {
   /* width: 300px; */
+  /* the nature of flexbox is going to try and work with the widths, and if it doesn't work out, it will evenly distribute the width to each child flex item in the flex container  */
   width: 33.3333333%;
+  padding: 10px;
 }
 
 .flex-container-with-wrap {
   display: flex;
   border: 10px solid goldenrod;
   height: 100vh;
-  flex-wrap: wrap;
+  /* flex-wrap: nowrap; this is the default */
+  flex-wrap: wrap; /* works with 300px this way, also the height is adjusted into 4 rows split evenly */
+  /* flex-direction: column; */
+  /* because we have the height set to 100vh, flex-direction column wraps when it knows another flex item can't fit at the end of the column within that 100vh */
+}
+
+/* 4. Flexbox Ordering */
+
+.flex-container-ordering {
+  display: flex;
+  /* border: 10px solid blue; */
+  /* height: 100vh; */
+}
+
+.box-ordering {
+  flex: 1;
+  /* flex: 1 will take all the widths of flex items and evenly distribute them  */
+  color: white;
+  font-size: 100px;
+  text-align: center;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+/* order property */
+/* by default, every flex item order is set to 0, so anything set to greater than 0 will put that flex item at the end of the other flex items */
+.box-ordering.box3 {
+  order: 5;
+}
+
+.box-ordering.box7 {
+  order: 2;
+}
+
+.box-ordering.box10 {
+  order: -1;
+}
+
+/* 5. Flexbox Alignment and Centering with justify-content */
+/* justify-content: how are the flex items aligned on the main axis? (left > right in this example)*/
+/* cross-axis is top to bottom in this lesson */
+/* so we're just worried about the main left > right axis right now */
+
+.flex-container-alignment {
+  display: flex;
+  border: 10px solid blue;
+  justify-content: space-around;
+  /* flex-start (default) - items are aligned to the start of the container */
+  /* flex-end - flex items are aligned to the right side/end of the container */
+  /* center - items aligned to center */
+  /* space-between - puts space between each flex item evenly */
+  /* space-around - takes into the account the space on the very left and very right */
+
+  /* NOTE: when we switch the main axis (flex-direction: column;) in order to take advantage of
+  the justify-content settings, we need to actually give the container a height
+  We also will need to adjust the font size on the .box-align items*/
+  min-height: 100vh;
   flex-direction: column;
 }
+
+.box-align {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+/* 6. Align items */
